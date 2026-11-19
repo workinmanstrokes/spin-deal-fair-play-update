@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#12121a" />
+  <meta name="description" content="Spin & Deal: Free Casino — free-play social casino. Virtual currency only, no cash value, no purchases." />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <title>Spin &amp; Deal: Free Casino</title>
+  <style>
+    :root { color-scheme: dark; --bg:#12121a; --card:#1d1d2b; --gold:#f5c542; --text:#f2f2f5; --muted:#9a9aad; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, sans-serif; background:var(--bg); color:var(--text); }
+    header { display:flex; justify-content:space-between; align-items:center; padding:14px 16px; border-bottom:1px solid #2a2a3d; }
+    header .wallet { font-weight:700; color:var(--gold); }
+    nav { display:flex; gap:8px; padding:12px 16px; overflow-x:auto; }
+    nav button { background:var(--card); color:var(--text); border:1px solid #2a2a3d; border-radius:999px; padding:8px 14px; cursor:pointer; white-space:nowrap; }
+    nav button.active { background:var(--gold); color:#12121a; font-weight:700; }
+    main { padding:16px; max-width:720px; margin:0 auto; }
+    .card { background:var(--card); border:1px solid #2a2a3d; border-radius:14px; padding:16px; margin-bottom:14px; }
+    .muted { color:var(--muted); font-size:14px; }
+    .big { font-size:28px; font-weight:800; }
+    button.primary { background:var(--gold); color:#12121a; border:0; border-radius:10px; padding:12px 20px; font-weight:800; cursor:pointer; }
+    .reels { display:flex; gap:10px; justify-content:center; font-size:44px; margin:12px 0; }
+    .reels span { background:#0c0c14; border:1px solid #2a2a3d; border-radius:10px; padding:10px 16px; }
+    .mockup { border:1px dashed var(--gold); }
+    footer { padding:16px; text-align:center; color:var(--muted); font-size:13px; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Spin &amp; Deal</strong>
+    <span class="wallet">🪙 <span id="wallet-balance">—</span> · Lv <span id="xp-level">—</span></span>
+  </header>
+  <nav id="lobby-nav" aria-label="Games">
+    <button data-route="slots" class="active">Slots</button>
+    <button data-route="blackjack">Blackjack</button>
+    <button data-route="roulette">Roulette</button>
+    <button data-route="daily">Daily &amp; Missions</button>
+    <button data-route="records">Records</button>
+    <button data-route="store">Store (Mockup)</button>
+    <button data-route="settings">Settings &amp; Legal</button>
+  </nav>
+  <main id="app">
+    <section class="card" id="view-slots">
+      <h2>Slots</h2>
+      <p class="muted">Original 3-reel slot + new variant. Free spins bonus on the second variant. Prize table is disclosed below — see Math Transparency.</p>
+      <div class="reels" aria-live="polite"><span id="reel-0">🍒</span><span id="reel-1">🍋</span><span id="reel-2">🔔</span></div>
+      <p>Bet: <strong id="slot-bet">10</strong> coins · Last win: <strong id="slot-last-win">—</strong></p>
+      <button class="primary" id="spin-btn">SPIN</button>
+      <p class="muted" id="slot-message">Good luck — all play is free, coins have no cash value.</p>
+    </section>
+    <section class="card">
+      <h3>Daily streak &amp; missions</h3>
+      <p id="streak-line">Streak: — days · <a href="#daily" data-route-link="daily">View missions</a></p>
+    </section>
+    <section class="card mockup">
+      <h3>Store — mockup</h3>
+      <p class="muted">Purchases are disabled until receipt validation and independent RNG/math checks pass. Nothing here can be bought.</p>
+    </section>
+  </main>
+  <footer>
+    Free-play social casino · Virtual currency only, no cash value · No real-money gambling · Play responsibly — take a break when the session reminder appears.
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
